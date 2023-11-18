@@ -34,10 +34,10 @@ void surf (Input IN, inout SurfaceOutput o) {
     float4 lm = tex2D (_LightMap, IN.uv2_LightMap);
     lm.rgb = (lm.rgb - 0.5) * (1.2) + 0.5;
     lm.rgb *= 14;
-    fixed4 reflcol = texCUBE (_Cube, IN.worldRefl);
+    fixed4 reflcol = texCUBE (_Cube, IN.worldRefl) * 7;
     reflcol *= c.a;
     o.Albedo = c.rgb;
-    o.Alpha = reflcol.a * _ReflectColor.a * 4;
+    o.Alpha = reflcol.a * _ReflectColor.a;
 	o.Emission = reflcol.rgb * _ReflectColor.rgb + (lm.rgb*o.Albedo.rgb);
 }
 ENDCG
