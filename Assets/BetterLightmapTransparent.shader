@@ -8,6 +8,7 @@ Properties {
 }
 
 SubShader {
+    Lighting Off
     Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
     LOD 200
 
@@ -24,11 +25,11 @@ struct Input {
 };
 
 void surf (Input IN, inout SurfaceOutput o) {
-    float4 c = tex2D (_MainTex, IN.uv_MainTex) * float4(_Color.rgb / 2.5, _Color.a);
+    float4 c = tex2D (_MainTex, IN.uv_MainTex) * float4((_Color.rgb - (half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w) / 10)) / 7, _Color.a);
     //c.rgb = (c.rgb - 0.5) * (1.2) + 0.5;
     float4 lm = tex2D (_LightMap, IN.uv2_LightMap);
     lm.rgb = (lm.rgb - 0.5) * (1.2) + 0.5;
-    lm.rgb *= 5;
+    lm.rgb *= 14;
     o.Albedo = c.rgb;
     o.Alpha = c.a;
 	o.Emission = lm.rgb*o.Albedo.rgb;

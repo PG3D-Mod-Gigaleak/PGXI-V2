@@ -8,6 +8,7 @@ Properties {
 }
 
 SubShader {
+    Lighting Off
     LOD 200
     Tags { "RenderType" = "Opaque" }
 CGPROGRAM
@@ -21,11 +22,11 @@ sampler2D _LightMap;
 fixed4 _Color;
 void surf (Input IN, inout SurfaceOutput o)
 {
-  float4 c = tex2D (_MainTex, IN.uv_MainTex) * (_Color / 2.5);
+  float4 c = tex2D (_MainTex, IN.uv_MainTex) * ((_Color - (float4(half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w), 0.0)) / 10) / 7);
   //c.rgb = (c.rgb - 0.5) * (1.2) + 0.5;
   float4 lm = tex2D (_LightMap, IN.uv2_LightMap);
   lm.rgb = (lm.rgb - 0.5) * (1.2) + 0.5;
-  lm.rgb *= 5;
+  lm.rgb *= 14;
   o.Albedo = c.rgb;
   o.Emission = lm.rgb*o.Albedo.rgb;
   o.Alpha = lm.a * _Color.a;
