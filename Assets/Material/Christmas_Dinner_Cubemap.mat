@@ -4,9 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Christmas_Dinner_Cubemap
-  m_Shader: {fileID: 20, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords:
+  m_Shader: {fileID: 4800000, guid: 47cf996663428904daf0e4d84d3e3eb2, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,6 +20,10 @@ Material:
     m_TexEnvs:
     - _Cube:
         m_Texture: {fileID: 8900000, guid: 0825e863790d1bb44a568cbc49f51d23, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 2800000, guid: 82e93564d04c2f344a61236e1c2509c0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:

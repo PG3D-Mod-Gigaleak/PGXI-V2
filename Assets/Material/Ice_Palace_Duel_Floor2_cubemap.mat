@@ -4,9 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Ice_Palace_Duel_Floor2_cubemap
-  m_Shader: {fileID: 20, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords:
+  m_Shader: {fileID: 4800000, guid: 47cf996663428904daf0e4d84d3e3eb2, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,6 +20,10 @@ Material:
     m_TexEnvs:
     - _Cube:
         m_Texture: {fileID: 8900000, guid: 38c464fa3b5d20146ba44fa5bfdc5429, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 2800000, guid: 24b70ef55c28e244b9f2728fb5af3eb3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
