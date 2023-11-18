@@ -411,6 +411,15 @@
 				{
 					"nameScene": "Pumpkins"
 				}
+				{
+					"nameScene": "Estate"
+				}
+				{
+					"nameScene": "Dust"
+				}
+				{
+					"nameScene": "Portal"
+				}
 			]
 		},
 		{
@@ -514,7 +523,15 @@
 					"nameScene": "Spooky_Lunapark",
 					"minLevPlayerForAval":2
 				}
-				
+				{
+					"nameScene": "Estate"
+				}
+				{
+					"nameScene": "Dust"
+				}
+				{
+					"nameScene": "Portal"
+				}
 			]
 		},
 		{

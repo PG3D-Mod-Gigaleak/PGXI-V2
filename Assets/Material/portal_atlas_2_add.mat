@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: portal_atlas_2_add
-  m_Shader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 6ee65c678687643428eab57d4ebf7e4a, type: 3}
   m_ShaderKeywords: GLOW11_GLOW_GLOWCOLOR GLOW11_MULTIPLY_MAINTEX_ALPHA
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
@@ -78,6 +78,7 @@ Material:
     - _MaxGrowSize: 2.5
     - _Metallic: 0
     - _Mode: 0
+    - _Mult: 3
     - _Multiplier: 1
     - _NoiseAmount: 0
     - _OcclusionStrength: 1
