@@ -504,7 +504,6 @@ public sealed class WeaponComparer : IComparer
 		WeaponTags.RocketCrossbow_up2_Tag,
 		WeaponTags.autoaim_bazooka_Tag,
 		WeaponTags.autoaim_bazooka_up1_Tag,
-		"autoaim_bazooka_up2",
 		WeaponTags.Ghost_Lantern_Tag,
 		WeaponTags.Ghost_Lantern_up1_Tag,
 		WeaponTags.Demoman_Tag,

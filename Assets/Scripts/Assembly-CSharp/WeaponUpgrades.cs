@@ -840,13 +840,6 @@ public static class WeaponUpgrades
 			WeaponTags.Ghost_Lantern_up1_Tag
 		};
 		upgrades.Add(item123);
-		List<string> item124 = new List<string>
-		{
-			WeaponTags.autoaim_bazooka_Tag,
-			WeaponTags.autoaim_bazooka_up1_Tag,
-			"autoaim_bazooka_up2"
-		};
-		upgrades.Add(item124);
 		List<string> item125 = new List<string>
 		{
 			WeaponTags.Semiauto_sniper_Tag,
