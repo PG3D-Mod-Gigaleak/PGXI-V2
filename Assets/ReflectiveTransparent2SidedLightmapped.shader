@@ -32,7 +32,7 @@ void surf (Input IN, inout SurfaceOutput o) {
     float4 c = tex2D (_MainTex, IN.uv_MainTex) * float4((_Color.rgb - (half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w) / 10)) / 7, _Color.a);
     //c.rgb = (c.rgb - 0.5) * (1.2) + 0.5;
     float4 lm = tex2D (_LightMap, IN.uv2_LightMap);
-    lm.rgb = (lm.rgb - 0.5) * (1.2) + 0.5;
+    //lm.rgb = (lm.rgb - 0.5) * (1.2) + 0.5;
     lm.rgb *= 14;
     fixed4 reflcol = texCUBE (_Cube, IN.worldRefl) * 7;
     reflcol *= c.a;
