@@ -1,13 +1,13 @@
 Shader "Unlit/Nick Text" {
 Properties {
     _MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
-    _Color ("Color", Color) = (1, 1, 1, 1)
 }
 
 SubShader {
     Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
     LOD 100
 
+    Cull Off
     ZWrite Off
     Blend SrcAlpha OneMinusSrcAlpha
 
@@ -23,19 +23,20 @@ SubShader {
             struct appdata_t {
                 float4 vertex : POSITION;
                 float2 texcoord : TEXCOORD0;
+                float4 color : COLOR;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct v2f {
                 float4 vertex : SV_POSITION;
                 float2 texcoord : TEXCOORD0;
+                float4 color : COLOR;
                 UNITY_FOG_COORDS(1)
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float4 _Color;
 
             v2f vert (appdata_t v)
             {
@@ -44,13 +45,14 @@ SubShader {
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
+                o.color = v.color;
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                return float4(_Color.rgb, tex2D(_MainTex, i.texcoord).a);
+                return float4(i.color.rgb, tex2D(_MainTex, i.texcoord).a);
             }
         ENDCG
     }
