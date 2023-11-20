@@ -2322,7 +2322,7 @@ public class ShopNGUIController : MonoBehaviour
 
 	public static void EquipWearInCategoryIfNotEquiped(string tg, CategoryNames cat, bool inGameLocal)
 	{
-		if (!Storager.hasKey(SnForWearCategory(cat)))
+		if (!Storager.IsInitialized(SnForWearCategory(cat)))
 		{
 			Storager.setString(SnForWearCategory(cat), NoneEquippedForWearCategory(cat), false);
 		}

@@ -3729,16 +3729,16 @@ public sealed class WeaponManager : MonoBehaviour
 	{
 		if (!_migrationsCompletedAtThisLaunch)
 		{
-			if (!Storager.hasKey(Defs.Weapons800to801))
+			if (!Storager.IsInitialized(Defs.Weapons800to801))
 			{
 				yield return StartCoroutine(UpdateWeapons800To801());
 			}
-			if (!Storager.hasKey(Defs.FixWeapons911))
+			if (!Storager.IsInitialized(Defs.FixWeapons911))
 			{
 				FixWeaponsDueToCategoriesMoved911();
 				yield return null;
 			}
-			if (!Storager.hasKey(Defs.ReturnAlienGun930))
+			if (!Storager.IsInitialized(Defs.ReturnAlienGun930))
 			{
 				ReturnAlienGunToCampaignBack();
 				yield return null;

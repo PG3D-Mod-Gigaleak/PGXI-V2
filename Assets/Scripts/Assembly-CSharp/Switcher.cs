@@ -209,9 +209,9 @@ internal sealed class Switcher : MonoBehaviour
 			Storager.setString(Defs.keyInappBonusStartActionForPresentIDGadgetkey, string.Empty, false);
 			Storager.setString(Defs.keyInappPresentIDGadgetkey, string.Empty, false);
 		}
-		if (!Storager.hasKey(Defs.initValsInKeychain15))
+		if (!Storager.IsInitialized(Defs.initValsInKeychain15))
 		{
-			Storager.setInt(Defs.initValsInKeychain15, 0, false);
+			Storager.setInt(Defs.initValsInKeychain15, 1, false);
 			Storager.setInt(Defs.LobbyLevelApplied, 1, false);
 			Storager.setString(Defs.CapeEquppedSN, Defs.CapeNoneEqupped, false);
 			Storager.setString(Defs.HatEquppedSN, Defs.HatNoneEqupped, false);
@@ -234,7 +234,7 @@ internal sealed class Switcher : MonoBehaviour
 		{
 			UnityEngine.Debug.LogError("Exception in Trying to unequip armor hat or temp armor hat (mistakenly got from gocha as a gift): " + e);
 		}
-		if (!Storager.hasKey(Defs.IsFirstLaunchFreshInstall))
+		if (!Storager.IsInitialized(Defs.IsFirstLaunchFreshInstall))
 		{
 			Storager.setInt(Defs.IsFirstLaunchFreshInstall, 0, false);
 		}
@@ -248,7 +248,7 @@ internal sealed class Switcher : MonoBehaviour
 		{
 			Storager.setString(Defs.BootsEquppedSN, Defs.BootsNoneEqupped, false);
 		}
-		if (!Storager.hasKey(Defs.initValsInKeychain27))
+		if (!Storager.IsInitialized(Defs.initValsInKeychain27))
 		{
 			Storager.setInt(Defs.initValsInKeychain27, 0, false);
 			Storager.setString(Defs.BootsEquppedSN, Defs.BootsNoneEqupped, false);
@@ -256,7 +256,7 @@ internal sealed class Switcher : MonoBehaviour
 		}
 		progress = 0.5f;
 		yield return progress;
-		if (!Storager.hasKey(Defs.initValsInKeychain40))
+		if (!Storager.IsInitialized(Defs.initValsInKeychain40))
 		{
 			Storager.setInt(Defs.initValsInKeychain40, 0, false);
 			Storager.setString(Defs.ArmorNewEquppedSN, Defs.ArmorNewNoneEqupped, false);
@@ -435,7 +435,7 @@ internal sealed class Switcher : MonoBehaviour
 			Storager.setInt("NextNumberStarterPack", 0, false);
 			yield return progress;
 		}
-		if (!Storager.hasKey(Defs.ArmorEquppedSN))
+		if (!Storager.IsInitialized(Defs.ArmorEquppedSN))
 		{
 			Storager.setString(Defs.ArmorEquppedSN, Defs.ArmorNoneEqupped, false);
 		}
