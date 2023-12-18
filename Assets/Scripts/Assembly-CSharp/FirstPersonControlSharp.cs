@@ -246,7 +246,7 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		}
 		if (Screen.lockCursor)
 		{
-			MoveCamera(new Vector2(Input.GetAxis("Mouse X") * 10, Input.GetAxis("Mouse Y") * 10));
+			MoveCamera(new Vector2(Input.GetAxisRaw("Mouse X") * 10, Input.GetAxisRaw("Mouse Y") * 10));
 			JoystickController.leftJoystick.value = updateKeyboardControls();
 		}
 		_movement = thisTransform.TransformDirection(new Vector3(JoystickController.leftJoystick.value.x, 0f, JoystickController.leftJoystick.value.y));

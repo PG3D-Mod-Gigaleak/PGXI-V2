@@ -303,6 +303,10 @@ public static class Storager
 
 	public static void setString(string key, string val, bool useICloud)
 	{
+		if (key == "ArmorNewEquppedSN")
+		{
+			Debug.LogError(val);
+		}
 		_keychainStringCache[key] = val;
 		if (Application.isEditor)
 		{

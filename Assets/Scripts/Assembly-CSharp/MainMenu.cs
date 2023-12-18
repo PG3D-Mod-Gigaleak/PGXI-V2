@@ -122,6 +122,7 @@ public sealed class MainMenu : MonoBehaviour
 
 	private void Awake()
 	{
+		Debug.LogError(Storager.getString("ArmorNewEquppedSN", false));
 		Defs.isDaterRegim = false;
 		if (firstEnterLobbyAtThisLaunch)
 		{
