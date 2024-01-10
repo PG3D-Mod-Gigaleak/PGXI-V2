@@ -1357,7 +1357,7 @@ public class ShopNGUIController : MonoBehaviour
 			shopCarouselElement.transform.parent = null;
 		}
 		wrapContent.Reposition();
-		List<GameObject> modelsList = GetModelsList(CurrentCategory);
+		List<GameObject> modelsList = GetModelsList(CurrentCategory).Distinct().ToList();
 		if (item == null)
 		{
 			item = CurrentItem;
