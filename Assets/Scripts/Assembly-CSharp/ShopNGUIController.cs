@@ -1552,6 +1552,7 @@ public class ShopNGUIController : MonoBehaviour
 			{
 				return 0;
 			}
+
 			return (list3 == list4) ? (list3.IndexOf(lh.name) - list3.IndexOf(rh.name)) : (Wear.wear[cn].IndexOf(list3) - Wear.wear[cn].IndexOf(list4));
 		};
 		List<GameObject> list2 = new List<GameObject>();

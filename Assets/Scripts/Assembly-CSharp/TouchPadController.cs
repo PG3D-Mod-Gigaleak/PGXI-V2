@@ -481,14 +481,22 @@ public class TouchPadController : MonoBehaviour
 			chooseGadgetPanel.gameObject.SetActiveSafeSelf(flag);
 		}
 	}
-
+bool hasClickedGadgetOnPC;
+float timeAtClick;
 	private void Update()
 	{
 		if (Input.GetKeyDown("g"))
 		{
+			hasClickedGadgetOnPC = true;
+			timeAtClick = Time.time;
 			OnGadgetPanelClick(true);
-			move.gadgeted = !move.gadgeted;
 		}
+
+		if (hasClickedGadgetOnPC && Time.time - 1f > timeAtClick) { // goofy way i know but i dont care
+			hasClickedGadgetOnPC = false;
+			OnGadgetPanelClick(false);
+		}
+
 		HideButtonsOnGadgetPanel();
 		if (m_shouldHideGadgetPanel && Time.realtimeSinceStartup - 5f >= m_hideGadgetsPanelSettedTime)
 		{
