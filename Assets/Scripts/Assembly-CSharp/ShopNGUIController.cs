@@ -3617,16 +3617,13 @@ public class ShopNGUIController : MonoBehaviour
 		}
 		else if (IsWearCategory(CurrentItem.Category))
 		{
-			Debug.LogError("wear");
 			string text2 = WeaponManager.LastBoughtTag(CurrentItem.Id);
 			if (!string.IsNullOrEmpty(text2))
 			{
-				Debug.LogError("wear2");
 				EquipWear(text2);
 			}
 			if ((TrainingController.TrainingCompleted || TrainingController.CompletedTrainingStage != TrainingController.NewTrainingCompletedStage.ShootingRangeCompleted) && InTrainingAfterNoviceArmorRemoved)
 			{
-				Debug.LogError("wear3");
 				InTrainingAfterNoviceArmorRemoved = false;
 				HandleOffersUpdated();
 			}

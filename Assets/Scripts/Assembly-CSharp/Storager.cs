@@ -303,10 +303,6 @@ public static class Storager
 
 	public static void setString(string key, string val, bool useICloud)
 	{
-		if (key == "ArmorNewEquppedSN")
-		{
-			Debug.LogError(val);
-		}
 		_keychainStringCache[key] = val;
 		if (Application.isEditor)
 		{
@@ -327,7 +323,7 @@ public static class Storager
 		{
 			return value;
 		}
-		if (BuildSettings.BuildTargetPlatform == RuntimePlatform.IPhonePlayer)
+		if (BuildSettings.BuildTargetPlatform == RuntimePlatform.IPhonePlayer || Application.isEditor)
 		{
 			return PlayerPrefs.GetString(key);
 		}
