@@ -252,12 +252,14 @@ public static class Storager
 
 	public static bool hasKey(string key)
 	{
+		if (Application.isEditor || BuildSettings.BuildTargetPlatform == RuntimePlatform.IPhonePlayer)
+			return PlayerPrefs.HasKey(key);
 		return CryptoPlayerPrefsFacade.HasKey(key);
 	}
 
 	public static void setInt(string key, int val, bool useICloud)
 	{
-		if (Application.isEditor)
+		if (Application.isEditor || BuildSettings.BuildTargetPlatform == RuntimePlatform.IPhonePlayer)
 		{
 			PlayerPrefs.SetInt(key, val);
 		}
@@ -283,7 +285,7 @@ public static class Storager
 
 	public static int getInt(string key, bool useICloud)
 	{
-		if (Application.isEditor)
+		if (Application.isEditor || BuildSettings.BuildTargetPlatform == RuntimePlatform.IPhonePlayer)
 		{
 			return PlayerPrefs.GetInt(key);
 		}
@@ -304,7 +306,7 @@ public static class Storager
 	public static void setString(string key, string val, bool useICloud)
 	{
 		_keychainStringCache[key] = val;
-		if (Application.isEditor)
+		if (Application.isEditor || BuildSettings.BuildTargetPlatform == RuntimePlatform.IPhonePlayer)
 		{
 			PlayerPrefs.SetString(key, val);
 			InvokeSubscribers(key);
@@ -338,7 +340,7 @@ public static class Storager
 
 	public static bool IsInitialized(string flagName)
 	{
-		if (Application.isEditor)
+		if (Application.isEditor || BuildSettings.BuildTargetPlatform == RuntimePlatform.IPhonePlayer)
 		{
 			return PlayerPrefs.HasKey(flagName);
 		}
