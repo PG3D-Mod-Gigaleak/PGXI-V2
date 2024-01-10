@@ -492,7 +492,7 @@ float timeAtClick;
 			OnGadgetPanelClick(true);
 		}
 
-		if (hasClickedGadgetOnPC && Time.time - 1f > timeAtClick) { // goofy way i know but i dont care
+		if (hasClickedGadgetOnPC && Time.time - 0.5f > timeAtClick) { // goofy way i know but i dont care
 			hasClickedGadgetOnPC = false;
 			OnGadgetPanelClick(false);
 		}
