@@ -485,8 +485,30 @@ bool hasClickedGadgetOnPC;
 float timeAtClick;
 	private void Update()
 	{
-		if (Input.GetKeyDown("g"))
+
+		if ((!Application.isMobilePlatform || Application.isEditor) && !chooseGadgetPanelShown) {
+			chooseGadgetPanel.Show();
+			m_shouldHideGadgetPanel = false;
+		}
+
+		if (Input.GetKeyDown(KeyCode.G))
 		{
+			GadgetsInfo.DefaultGadget = GadgetInfo.GadgetCategory.Throwing;
+			chooseGadgetPanel.UpdatePanel();
+			hasClickedGadgetOnPC = true;
+			timeAtClick = Time.time;
+			OnGadgetPanelClick(true);
+		} else if (Input.GetKeyDown(KeyCode.V))
+		{
+			GadgetsInfo.DefaultGadget = GadgetInfo.GadgetCategory.Tools;
+			chooseGadgetPanel.UpdatePanel();
+			hasClickedGadgetOnPC = true;
+			timeAtClick = Time.time;
+			OnGadgetPanelClick(true);
+		} else if (Input.GetKeyDown(KeyCode.B))
+		{
+			GadgetsInfo.DefaultGadget = GadgetInfo.GadgetCategory.Support;
+			chooseGadgetPanel.UpdatePanel();
 			hasClickedGadgetOnPC = true;
 			timeAtClick = Time.time;
 			OnGadgetPanelClick(true);

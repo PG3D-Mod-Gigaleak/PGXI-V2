@@ -39,7 +39,7 @@ public class ChooseGadgetPanel : MonoBehaviour
 
 	private GadgetButton _cachedGadgetButton;
 
-	private List<GadgetPanelEntry> _entries = new List<GadgetPanelEntry>();
+	public List<GadgetPanelEntry> _entries = new List<GadgetPanelEntry>();
 
 	private HintState m_hintState;
 
@@ -140,6 +140,7 @@ public class ChooseGadgetPanel : MonoBehaviour
 				}
 			}
 			gadgetButtonScript.yazichok.SetActiveSafeSelf(CanExtend() && WeaponManager.sharedManager.myPlayerMoveC != null && WeaponManager.sharedManager.myPlayerMoveC.canUseGadgets);
+		
 		}
 		catch (Exception ex)
 		{
@@ -239,7 +240,7 @@ public class ChooseGadgetPanel : MonoBehaviour
 		return _entries.Count > 1;
 	}
 
-	private void UpdatePanel()
+	public void UpdatePanel()
 	{
 		GadgetPanelEntry[] array = new GadgetPanelEntry[_entries.Count];
 		_entries.CopyTo(array);
