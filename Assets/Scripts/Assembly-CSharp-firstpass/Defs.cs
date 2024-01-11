@@ -2598,7 +2598,7 @@ public sealed class Defs
 		IsTwitterLoginRewardaGained = "IsTwitterLoginRewardaGained";
 		TwitterRewardGainStarted = "TwitterRewardGainStarted";
 		ResetTrainingInDevBuild = false;
-		useSqlLobby = true;
+		useSqlLobby = false;
 		keyTestCountGetGift = "keyTestCountGetGift";
 		BuyGiftKey = "BuyGiftKey";
 		localTimeInsteadServerTime = false;
