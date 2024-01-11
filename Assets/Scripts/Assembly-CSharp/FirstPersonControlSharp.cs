@@ -247,7 +247,10 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		if (Screen.lockCursor)
 		{
 			MoveCamera(new Vector2(Input.GetAxisRaw("Mouse X") * 10, Input.GetAxisRaw("Mouse Y") * 10));
-			JoystickController.leftJoystick.value = updateKeyboardControls();
+			if (!mySkinName.playerMoveC.showChat)
+			{
+				JoystickController.leftJoystick.value = updateKeyboardControls();
+			}
 		}
 		_movement = thisTransform.TransformDirection(new Vector3(JoystickController.leftJoystick.value.x, 0f, JoystickController.leftJoystick.value.y));
 		if ((!isHunger || !hungerGameController.isGo) && isHunger)
@@ -264,7 +267,10 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		}
 		_movement.y = 0f;
 		_movement.Normalize();
-		JoystickController.leftJoystick.value = updateKeyboardControls();
+		if (!mySkinName.playerMoveC.showChat)
+		{
+			JoystickController.leftJoystick.value = updateKeyboardControls();
+		}
 		Vector2 vector = new Vector2(Mathf.Abs(JoystickController.leftJoystick.value.x), Mathf.Abs(JoystickController.leftJoystick.value.y));
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
