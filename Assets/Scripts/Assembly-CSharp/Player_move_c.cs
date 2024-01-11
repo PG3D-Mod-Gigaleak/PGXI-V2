@@ -1919,11 +1919,11 @@ public sealed class Player_move_c : MonoBehaviour
 		{
 			if (!isInet)
 			{
-				_weaponManager.myPlayerMoveC.AddMessage(text, Time.time, -1, myPlayerTransform.GetComponent<NetworkView>().viewID, 0, _clanLogo, _iconName);
+				_weaponManager.myPlayerMoveC.AddMessage(text, Time.time, -1, /*myPlayerTransform.GetComponent<NetworkView>().viewID*/default(NetworkViewID), 0, _clanLogo, _iconName);
 			}
 			else
 			{
-				_weaponManager.myPlayerMoveC.AddMessage(text, Time.time, mySkinName.photonView.viewID, myPlayerTransform.GetComponent<NetworkView>().viewID, myCommand, _clanLogo, _iconName);
+				_weaponManager.myPlayerMoveC.AddMessage(text, Time.time, mySkinName.photonView.viewID,/* myPlayerTransform.GetComponent<NetworkView>().viewID*/default(NetworkViewID), myCommand, _clanLogo, _iconName);
 			}
 		}
 	}
