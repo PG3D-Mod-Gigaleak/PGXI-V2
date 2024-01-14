@@ -13353,7 +13353,7 @@ Animation:
   m_GameObject: {fileID: 1278658062103234}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: e07616ac995c40941b402e5527056a61, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: e07616ac995c40941b402e5527056a61, type: 2}
   m_WrapMode: 0
@@ -13368,7 +13368,7 @@ Animation:
   m_GameObject: {fileID: 1244087163307372}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: f31614031a7a4844286f6b1c6ec327fc, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: f31614031a7a4844286f6b1c6ec327fc, type: 2}
   - {fileID: 7400000, guid: fb197ca87ec712f4492603e66498817d, type: 2}
@@ -13386,7 +13386,7 @@ Animation:
   m_GameObject: {fileID: 1329803305147480}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 955d45d746424c94f8a3bd210b37fc55, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 955d45d746424c94f8a3bd210b37fc55, type: 2}
   - {fileID: 7400000, guid: 3d80cdb255fd73b499e1e497a86773fa, type: 2}
@@ -13404,7 +13404,7 @@ Animation:
   m_GameObject: {fileID: 1072746103462618}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 27cf2fb1fa912c242b8d22a17834a6ff, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 27cf2fb1fa912c242b8d22a17834a6ff, type: 2}
   - {fileID: 7400000, guid: 76ff46b61929d1b408c8d9961838d9b3, type: 2}
@@ -13422,7 +13422,7 @@ Animation:
   m_GameObject: {fileID: 1496787013389852}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 82ea3f7b9c5e40748924a701611231f6, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 82ea3f7b9c5e40748924a701611231f6, type: 2}
   - {fileID: 7400000, guid: 8bbd2aeeace47a148a0817891b524523, type: 2}
@@ -13448,7 +13448,7 @@ Animation:
   m_GameObject: {fileID: 1152186889757434}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 20ca692875831a64bbaeb4d2b1b2309b, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 20ca692875831a64bbaeb4d2b1b2309b, type: 2}
   - {fileID: 7400000, guid: abd3efded4a1ac94b8d9d7c506a3e300, type: 2}
@@ -13467,7 +13467,7 @@ Animation:
   m_GameObject: {fileID: 1764217879313952}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 8113330da2b83bf4db745374ad4c066f, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 8113330da2b83bf4db745374ad4c066f, type: 2}
   - {fileID: 7400000, guid: 96073085e14bbcb4dba3e1a8b2cf96ee, type: 2}
@@ -13493,7 +13493,7 @@ Animation:
   m_GameObject: {fileID: 1725947192216864}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: e07616ac995c40941b402e5527056a61, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: e07616ac995c40941b402e5527056a61, type: 2}
   m_WrapMode: 0
@@ -13508,7 +13508,7 @@ Animation:
   m_GameObject: {fileID: 1779782500362484}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: f31614031a7a4844286f6b1c6ec327fc, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: f31614031a7a4844286f6b1c6ec327fc, type: 2}
   - {fileID: 7400000, guid: fb197ca87ec712f4492603e66498817d, type: 2}
@@ -13534,7 +13534,7 @@ Animation:
   m_GameObject: {fileID: 1602756696532916}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 0060ad630c7780a458d175d5d1f9e3ce, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 0060ad630c7780a458d175d5d1f9e3ce, type: 2}
   - {fileID: 7400000, guid: 3f5c462a6ff040e48abc329137e82733, type: 2}
@@ -13562,7 +13562,7 @@ Animation:
   m_GameObject: {fileID: 1223252283932008}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 955d45d746424c94f8a3bd210b37fc55, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 955d45d746424c94f8a3bd210b37fc55, type: 2}
   - {fileID: 7400000, guid: 3d80cdb255fd73b499e1e497a86773fa, type: 2}

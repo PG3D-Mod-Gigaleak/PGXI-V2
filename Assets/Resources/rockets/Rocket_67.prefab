@@ -11,9 +11,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1325572683926664}
   m_IsPrefabParent: 1
+--- !u!1 &1265351737113982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4262555513507885}
+  - component: {fileID: 137197372782712773}
+  m_Layer: 0
+  m_Name: gadget_fakebonus_mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1325572683926664
 GameObject:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4501783108386653}
@@ -29,9 +47,69 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1470690416319708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4104995378443492}
+  - component: {fileID: 114750632715786699}
+  m_Layer: 0
+  m_Name: gadget_fakebonus_rocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1957621988827152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4924347211581453}
+  m_Layer: 0
+  m_Name: root_bone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4104995378443492
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470690416319708}
+  m_LocalRotation: {x: -0.7071068, y: 0.000000010536713, z: -0.000000010536713, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4924347211581453}
+  m_Father: {fileID: 4501783108386653}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: -0, z: 0.0000017075473}
+--- !u!4 &4262555513507885
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1265351737113982}
+  m_LocalRotation: {x: -0.3303286, y: -0.030777818, z: -0.013898637, w: 0.9432617}
+  m_LocalPosition: {x: 0.06521745, y: -0.8238335, z: 0.0680245}
+  m_LocalScale: {x: 1.0000002, y: 0.9999993, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 4924347211581453}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -38.588955, y: 3.855782, z: 0.33803964}
 --- !u!4 &4501783108386653
 Transform:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325572683926664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.192137, y: -7.8752136, z: -12.946966}
@@ -41,52 +119,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!111 &111148882939554974
-Animation:
+--- !u!4 &4924347211581453
+Transform:
   m_ObjectHideFlags: 0
-  m_GameObject: {fileID: 1325572683926664}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: 9767c1d23bff6a1468453fd1b5f2d0a9, type: 2}
-  - {fileID: 7400000, guid: 041c1dfc1ff52fc4d917c168f4e9c25a, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
---- !u!114 &114293496953842552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_GameObject: {fileID: 1325572683926664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 250114f962311d24d8c3e53cf67bbc62, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  typeFly: 21
-  typeDead: 1
-  typeKilsIconChat: 3
-  lifeTime: 360
-  startForce: 85
-  flyParticle: {fileID: 0}
-  trail: {fileID: 0}
-  droneRotator: {fileID: 114750632715786699}
-  droneParticle: {fileID: 0}
-  sizeBoxCollider: {x: 0.4, y: 0.15, z: 0.4}
-  centerBoxCollider: {x: 0, y: 0, z: 0}
-  autoRocketForce: 15
-  raduisDetectTarget: 3
-  toxicHitTime: 1
-  toxicDamageMultiplier: 0.2
-  stickedParticle: {fileID: 0}
-  countJumpLightning: 2
-  raduisDetectTargetLightning: 5
-  chargeScaleMin: 0.7
-  chargeScaleMax: 1.2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1957621988827152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00000000771129, y: 0.000000007711287, z: 0.2587478}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4262555513507885}
+  m_Father: {fileID: 4104995378443492}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!65 &65113734975809620
 BoxCollider:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325572683926664}
   m_Material: {fileID: 13400000, guid: 0f81ba8cb08cd7447b71fcdca2d4b092, type: 2}
   m_IsTrigger: 0
@@ -97,6 +148,8 @@ BoxCollider:
 --- !u!82 &82767659384274572
 AudioSource:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325572683926664}
   m_Enabled: 1
   serializedVersion: 4
@@ -172,104 +225,81 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114882449098265400
+--- !u!111 &111148882939554974
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1325572683926664}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9767c1d23bff6a1468453fd1b5f2d0a9, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 9767c1d23bff6a1468453fd1b5f2d0a9, type: 2}
+  - {fileID: 7400000, guid: 041c1dfc1ff52fc4d917c168f4e9c25a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 1
+--- !u!114 &114293496953842552
 MonoBehaviour:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325572683926664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9af2b2c646f8a0419a72addcce48084, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
---- !u!1 &1470690416319708
-GameObject:
-  m_ObjectHideFlags: 0
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4104995378443492}
-  - component: {fileID: 114750632715786699}
-  m_Layer: 0
-  m_Name: gadget_fakebonus_rocket
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4104995378443492
-Transform:
-  m_ObjectHideFlags: 0
-  m_GameObject: {fileID: 1470690416319708}
-  m_LocalRotation: {x: -0.7071068, y: 1.0536713E-08, z: -1.0536713E-08, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4924347211581453}
-  m_Father: {fileID: 4501783108386653}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: -0, z: 1.7075473E-06}
+  m_Script: {fileID: 11500000, guid: 250114f962311d24d8c3e53cf67bbc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeFly: 21
+  typeDead: 1
+  typeKilsIconChat: 3
+  lifeTime: 360
+  startForce: 85
+  flyParticle: {fileID: 0}
+  trail: {fileID: 0}
+  droneRotator: {fileID: 114750632715786699}
+  droneParticle: {fileID: 0}
+  sizeBoxCollider: {x: 0.4, y: 0.15, z: 0.4}
+  centerBoxCollider: {x: 0, y: 0, z: 0}
+  autoRocketForce: 15
+  raduisDetectTarget: 3
+  toxicHitTime: 1
+  toxicDamageMultiplier: 0.2
+  stickedParticle: {fileID: 0}
+  countJumpLightning: 2
+  raduisDetectTargetLightning: 5
+  chargeScaleMin: 0.7
+  chargeScaleMax: 1.2
 --- !u!114 &114750632715786699
 MonoBehaviour:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1470690416319708}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cf271fb1e65e43419bcf274616256c4, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   eulersPerSecond: {x: 0, y: 0, z: 220}
---- !u!1 &1957621988827152
-GameObject:
+--- !u!114 &114882449098265400
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4924347211581453}
-  m_Layer: 0
-  m_Name: root_bone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4924347211581453
-Transform:
-  m_ObjectHideFlags: 0
-  m_GameObject: {fileID: 1957621988827152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.71129E-09, y: 7.711287E-09, z: 0.2587478}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4262555513507885}
-  m_Father: {fileID: 4104995378443492}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!1 &1265351737113982
-GameObject:
-  m_ObjectHideFlags: 0
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4262555513507885}
-  - component: {fileID: 137197372782712773}
-  m_Layer: 0
-  m_Name: gadget_fakebonus_mesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4262555513507885
-Transform:
-  m_ObjectHideFlags: 0
-  m_GameObject: {fileID: 1265351737113982}
-  m_LocalRotation: {x: -0.3303286, y: -0.030777818, z: -0.013898637, w: 0.9432617}
-  m_LocalPosition: {x: 0.06521745, y: -0.8238335, z: 0.0680245}
-  m_LocalScale: {x: 1.0000002, y: 0.9999993, z: 1.0000002}
-  m_Children: []
-  m_Father: {fileID: 4924347211581453}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -38.588955, y: 3.855782, z: 0.33803964}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1325572683926664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9af2b2c646f8a0419a72addcce48084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137197372782712773
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265351737113982}
   m_Enabled: 1
   m_CastShadows: 1
@@ -302,7 +332,7 @@ SkinnedMeshRenderer:
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
-  m_skinnedMotionVectors: 0
+  m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300000, guid: ed30071c81e99044a8cc159af5c97282, type: 2}
   m_Bones:
   - {fileID: 4924347211581453}

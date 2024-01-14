@@ -59,7 +59,7 @@ Material:
     - _ViewerOffset: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.74437714}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.63048744}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _IntensityScaleBias: {r: 1, g: 0.1, b: 0, a: 0}
