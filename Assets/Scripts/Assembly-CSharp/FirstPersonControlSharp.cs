@@ -243,7 +243,7 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		{
 			mySkinName.playerMoveC.isRocketJump = false;
 		}
-		if (Screen.lockCursor || !Application.isMobilePlatform)
+		if (Screen.lockCursor && !Application.isMobilePlatform)
 		{
 			MoveCamera(new Vector2(Input.GetAxisRaw("Mouse X") * 10, Input.GetAxisRaw("Mouse Y") * 10));
 			if (!mySkinName.playerMoveC.showChat)
