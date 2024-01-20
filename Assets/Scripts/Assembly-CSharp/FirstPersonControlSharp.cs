@@ -266,7 +266,7 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		}
 		_movement.y = 0f;
 		_movement.Normalize();
-		if (!mySkinName.playerMoveC.showChat || Application.isMobilePlatform)
+		if (!mySkinName.playerMoveC.showChat && !Application.isMobilePlatform)
 		{
 			JoystickController.leftJoystick.value = updateKeyboardControls();
 		}
