@@ -246,7 +246,7 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		if (Screen.lockCursor)
 		{
 			MoveCamera(new Vector2(Input.GetAxisRaw("Mouse X") * 10, Input.GetAxisRaw("Mouse Y") * 10));
-			if (!mySkinName.playerMoveC.showChat)
+			if (!mySkinName.playerMoveC.showChat || Application.isMobilePlatform)
 			{
 				JoystickController.leftJoystick.value = updateKeyboardControls();
 			}
@@ -266,7 +266,7 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		}
 		_movement.y = 0f;
 		_movement.Normalize();
-		if (!mySkinName.playerMoveC.showChat)
+		if (!mySkinName.playerMoveC.showChat || Application.isMobilePlatform)
 		{
 			JoystickController.leftJoystick.value = updateKeyboardControls();
 		}
