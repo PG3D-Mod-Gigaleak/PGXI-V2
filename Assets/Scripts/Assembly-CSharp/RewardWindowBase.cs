@@ -182,8 +182,9 @@ public sealed class RewardWindowBase : MonoBehaviour
 		}
 		if (Application.isEditor)
 		{
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
+			Screen.lockCursor = false;
+			//Cursor.lockState = CursorLockMode.None;
+			//Cursor.visible = true;
 		}
 		Action shown = RewardWindowBase.Shown;
 		if (shown != null)

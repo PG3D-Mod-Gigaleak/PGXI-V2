@@ -115,7 +115,6 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 
 	private void Start()
 	{
-		Screen.lockCursor = true;
 		mySkinName = GetComponent<SkinName>();
 		if (!isInet)
 		{

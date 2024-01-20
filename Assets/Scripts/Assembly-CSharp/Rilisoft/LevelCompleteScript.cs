@@ -438,8 +438,9 @@ namespace Rilisoft
 		{
 			if (Application.isEditor)
 			{
-				Cursor.lockState = CursorLockMode.None;
-				Cursor.visible = true;
+				Screen.lockCursor = false;
+				//Cursor.lockState = CursorLockMode.None;
+				//Cursor.visible = true;
 			}
 			QuestSystem.Instance.SaveQuestProgressIfDirty();
 			if (Defs.IsSurvival)

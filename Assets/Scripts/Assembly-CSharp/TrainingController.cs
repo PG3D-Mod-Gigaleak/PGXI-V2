@@ -630,8 +630,9 @@ public sealed class TrainingController : MonoBehaviour
 			stepAnim = 0;
 			if (Application.isEditor)
 			{
-				Cursor.lockState = CursorLockMode.None;
-				Cursor.visible = true;
+				Screen.lockCursor = false;
+				//Cursor.lockState = CursorLockMode.None;
+				//Cursor.visible = true;
 			}
 		}
 		if (stepTraining == TrainingState.TapToSelectWeapon)
@@ -661,7 +662,8 @@ public sealed class TrainingController : MonoBehaviour
 			stepAnim = 0;
 			if (Application.isEditor)
 			{
-				Cursor.lockState = CursorLockMode.Locked;
+				Screen.lockCursor = true;
+				//Cursor.lockState = CursorLockMode.Locked;
 			}
 		}
 		TrainingState value;
@@ -700,7 +702,8 @@ public sealed class TrainingController : MonoBehaviour
 			stepAnim = 0;
 			if (Application.isEditor)
 			{
-				Cursor.lockState = CursorLockMode.Locked;
+				Screen.lockCursor = true;
+				//Cursor.lockState = CursorLockMode.Locked;
 			}
 		}
 		if (stepTraining == TrainingState.GoToPortal)

@@ -1781,6 +1781,7 @@ public sealed class Player_move_c : MonoBehaviour
 		myCamera.fieldOfView = stdFov;
 		myDamageable = mySkinName.GetComponent<PlayerDamageable>();
 		skinNamePixelView = mySkinName.GetComponent<PixelView>();
+		Screen.lockCursor = true;
 	}
 
 	public void ActivateJetpackGadget(bool isEnabled)
@@ -4670,8 +4671,9 @@ public sealed class Player_move_c : MonoBehaviour
 				Debug.Log("Handling [Escape]. Cursor locked.");
 			}
 			_escapePressed = true;
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
+			Screen.lockCursor = false;
+			//Cursor.lockState = CursorLockMode.None;
+			//Cursor.visible = true;
 			return;
 		}
 		if (showRanks)
@@ -4694,7 +4696,7 @@ public sealed class Player_move_c : MonoBehaviour
 		GameObject gameObject = GameObject.FindGameObjectWithTag("ChatViewer");
 		if (gameObject == null)
 		{
-			if (!isInappWinOpen && Cursor.lockState != CursorLockMode.Locked)
+			if (!isInappWinOpen && /*Cursor.lockState != CursorLockMode.Locked*/ !Screen.lockCursor)
 			{
 				if (Defs.IsDeveloperBuild)
 				{
@@ -6793,6 +6795,7 @@ public sealed class Player_move_c : MonoBehaviour
 			}
 			resetMultyKill();
 			isKilled = true;
+			Screen.lockCursor = false;
 			if (!wasResurrected || deadInCollider)
 			{
 				if (Defs.isCOOP && !isSuicided)
@@ -6911,6 +6914,7 @@ public sealed class Player_move_c : MonoBehaviour
 		else
 		{
 			isKilled = true;
+			Screen.lockCursor = false;
 			isSuicided = false;
 			isDeadFrame = true;
 			AutoFade.fadeKilled(0.5f, 1.5f, 0.1f, Color.white);
@@ -8034,6 +8038,7 @@ public sealed class Player_move_c : MonoBehaviour
 	private void SetNoKilled()
 	{
 		isKilled = false;
+		Screen.lockCursor = true;
 		resetMultyKill();
 	}
 
