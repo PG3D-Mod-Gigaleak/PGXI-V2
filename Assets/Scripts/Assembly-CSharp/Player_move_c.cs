@@ -4389,6 +4389,19 @@ public sealed class Player_move_c : MonoBehaviour
 
 	private void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.F2))
+		{
+			for (int x = -20; x < 200; x += 30)
+			{
+				for (int y = -10; y < 60; y += 5)
+				{
+					for (int z = -20; z < 200; z += 30)
+					{
+						PhotonNetwork.Instantiate("hungergames/Chest", new Vector3(x, y, z), Quaternion.identity, 0);
+					}
+				}
+			}
+		}
 		liveTime += Time.deltaTime;
 		if (isMulti && isMine && !isDetectCh && CurHealth > 50f)
 		{
@@ -4671,7 +4684,10 @@ public sealed class Player_move_c : MonoBehaviour
 				Debug.Log("Handling [Escape]. Cursor locked.");
 			}
 			_escapePressed = true;
-			Screen.lockCursor = false;
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = false;
+			}
 			//Cursor.lockState = CursorLockMode.None;
 			//Cursor.visible = true;
 			return;
@@ -6795,7 +6811,10 @@ public sealed class Player_move_c : MonoBehaviour
 			}
 			resetMultyKill();
 			isKilled = true;
-			Screen.lockCursor = false;
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = false;
+			}
 			if (!wasResurrected || deadInCollider)
 			{
 				if (Defs.isCOOP && !isSuicided)
@@ -6914,7 +6933,10 @@ public sealed class Player_move_c : MonoBehaviour
 		else
 		{
 			isKilled = true;
-			Screen.lockCursor = false;
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = false;
+			}
 			isSuicided = false;
 			isDeadFrame = true;
 			AutoFade.fadeKilled(0.5f, 1.5f, 0.1f, Color.white);
@@ -8038,7 +8060,10 @@ public sealed class Player_move_c : MonoBehaviour
 	private void SetNoKilled()
 	{
 		isKilled = false;
-		Screen.lockCursor = true;
+		if (!Application.isMobilePlatform)
+		{
+			Screen.lockCursor = true;
+		}
 		resetMultyKill();
 	}
 

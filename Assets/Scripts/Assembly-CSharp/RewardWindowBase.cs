@@ -182,7 +182,10 @@ public sealed class RewardWindowBase : MonoBehaviour
 		}
 		if (Application.isEditor)
 		{
-			Screen.lockCursor = false;
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = false;
+			}
 			//Cursor.lockState = CursorLockMode.None;
 			//Cursor.visible = true;
 		}

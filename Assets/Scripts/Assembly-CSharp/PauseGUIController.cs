@@ -223,7 +223,10 @@ public class PauseGUIController : MonoBehaviour
 			}
 			ExperienceController.sharedController.isShowRanks = false;
 			ExpController.Instance.InterfaceEnabled = false;
-			Screen.lockCursor = true;
+			if (!Application.isMobilePlatform)
+			{
+				Screen.lockCursor = true;
+			}
 		}
 	}
 }

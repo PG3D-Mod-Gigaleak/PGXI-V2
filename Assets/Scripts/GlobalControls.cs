@@ -15,7 +15,7 @@ public class GlobalControls : MonoBehaviour
 		{
 			PlayerPrefs.DeleteAll();
 		}
-		if (Input.GetKeyDown(KeyCode.F1))
+		if (Input.GetKeyDown(KeyCode.F1) && !Application.isMobilePlatform)
 		{
 			Screen.lockCursor = !Screen.lockCursor;
 		}

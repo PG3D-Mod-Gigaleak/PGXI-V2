@@ -630,7 +630,10 @@ public sealed class TrainingController : MonoBehaviour
 			stepAnim = 0;
 			if (Application.isEditor)
 			{
-				Screen.lockCursor = false;
+				if (!Application.isMobilePlatform)
+				{
+					Screen.lockCursor = false;
+				}
 				//Cursor.lockState = CursorLockMode.None;
 				//Cursor.visible = true;
 			}
@@ -662,7 +665,10 @@ public sealed class TrainingController : MonoBehaviour
 			stepAnim = 0;
 			if (Application.isEditor)
 			{
-				Screen.lockCursor = true;
+				if (!Application.isMobilePlatform)
+				{
+					Screen.lockCursor = true;
+				}
 				//Cursor.lockState = CursorLockMode.Locked;
 			}
 		}
@@ -702,7 +708,10 @@ public sealed class TrainingController : MonoBehaviour
 			stepAnim = 0;
 			if (Application.isEditor)
 			{
-				Screen.lockCursor = true;
+				if (!Application.isMobilePlatform)
+				{
+					Screen.lockCursor = true;
+				}
 				//Cursor.lockState = CursorLockMode.Locked;
 			}
 		}
