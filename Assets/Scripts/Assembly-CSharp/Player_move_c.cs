@@ -4389,19 +4389,6 @@ public sealed class Player_move_c : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.F2))
-		{
-			for (int x = -20; x < 200; x += 30)
-			{
-				for (int y = -10; y < 60; y += 5)
-				{
-					for (int z = -20; z < 200; z += 30)
-					{
-						PhotonNetwork.Instantiate("hungergames/Chest", new Vector3(x, y, z), Quaternion.identity, 0);
-					}
-				}
-			}
-		}
 		liveTime += Time.deltaTime;
 		if (isMulti && isMine && !isDetectCh && CurHealth > 50f)
 		{
