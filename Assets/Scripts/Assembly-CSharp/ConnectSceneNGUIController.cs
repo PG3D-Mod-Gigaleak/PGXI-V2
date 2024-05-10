@@ -3192,7 +3192,7 @@ public class ConnectSceneNGUIController : MonoBehaviour
 		else
 		{
 			PhotonNetwork.isMessageQueueRunning = true;
-			PhotonNetwork.Disconnect();
+			// PhotonNetwork.Disconnect();
 		}
 	}
 
