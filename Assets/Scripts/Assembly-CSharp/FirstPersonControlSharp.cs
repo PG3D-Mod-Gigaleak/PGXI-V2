@@ -161,7 +161,6 @@ public sealed class FirstPersonControlSharp : MonoBehaviour
 		base.enabled = false;
 	}
 
-	[RPC]
 	[PunRPC]
 	private void setIp(string _ip)
 	{

@@ -12,7 +12,7 @@ namespace GooglePlayGames
 
 		private UserScope mUserScope;
 
-		private Range mRange;
+		private UnityEngine.SocialPlatforms.Range mRange;
 
 		private TimeScope mTimeScope;
 
@@ -64,7 +64,7 @@ namespace GooglePlayGames
 			}
 		}
 
-		public Range range
+		public UnityEngine.SocialPlatforms.Range range
 		{
 			get
 			{

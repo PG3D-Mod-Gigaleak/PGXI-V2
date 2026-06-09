@@ -68,7 +68,6 @@ public sealed class AdvancedEffects : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	public void AdvancedEffectRPC(int effectIndex, float effectTime)
 	{
 		for (int i = 0; i < playerEffects.Count; i++)

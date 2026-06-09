@@ -96,7 +96,6 @@ public class DaterHockeyController : MonoBehaviour
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	private void AddForceRPC(Vector3 _force)
 	{
@@ -119,7 +118,7 @@ public class DaterHockeyController : MonoBehaviour
 	private void ResetPosition()
 	{
 		thisTransform.position = resetPositionPoint;
-		thisRigidbody.velocity = Vector3.zero;
+		thisRigidbody.linearVelocity = Vector3.zero;
 		thisRigidbody.angularVelocity = Vector3.zero;
 		isResetPosition = true;
 	}
@@ -130,14 +129,14 @@ public class DaterHockeyController : MonoBehaviour
 		{
 			stream.SendNext(thisTransform.position);
 			stream.SendNext(thisTransform.rotation);
-			stream.SendNext(thisRigidbody.velocity);
+			stream.SendNext(thisRigidbody.linearVelocity);
 			stream.SendNext(thisRigidbody.angularVelocity);
 			stream.SendNext(isResetPosition);
 			return;
 		}
 		synchPos = (Vector3)stream.ReceiveNext();
 		synchRot = (Quaternion)stream.ReceiveNext();
-		thisRigidbody.velocity = (Vector3)stream.ReceiveNext();
+		thisRigidbody.linearVelocity = (Vector3)stream.ReceiveNext();
 		thisRigidbody.angularVelocity = (Vector3)stream.ReceiveNext();
 		isResetPosition = (bool)stream.ReceiveNext();
 		if (isFirstSynhPos)

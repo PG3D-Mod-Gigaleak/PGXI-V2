@@ -13,10 +13,10 @@ public class ExplosionDestroyer : MonoBehaviour
 	private IEnumerator Remove()
 	{
 		yield return new WaitForSeconds(Time);
-		ParticleEmitter pe = GetComponent<ParticleEmitter>();
-		if (pe != null)
+		ParticleSystem particleSystem = GetComponent<ParticleSystem>();
+		if (particleSystem != null)
 		{
-			pe.emit = false;
+			particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 		}
 	}
 }

@@ -292,7 +292,6 @@ public class TimeGameController : MonoBehaviour
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	private void SynchTimeEnd(float synchTime)
 	{
@@ -300,7 +299,6 @@ public class TimeGameController : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void SynchTimeServer(float synchTime)
 	{
 		if (networkTime < (double)synchTime)

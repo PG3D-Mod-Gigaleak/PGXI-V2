@@ -457,7 +457,6 @@ public class TurretController : MonoBehaviour, IDamageable
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	public void SynchNumUpdateRPC(int _numUpdate)
 	{
@@ -509,7 +508,6 @@ public class TurretController : MonoBehaviour, IDamageable
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	protected void ShotRPC()
 	{
@@ -592,7 +590,6 @@ public class TurretController : MonoBehaviour, IDamageable
 		photonView.RPC("SynchHealth", player, health);
 	}
 
-	[RPC]
 	[PunRPC]
 	public void SynchHealth(float _health)
 	{
@@ -670,14 +667,12 @@ public class TurretController : MonoBehaviour, IDamageable
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	public void MinusLiveRPC(float dm, int idKiller)
 	{
 		MinusLiveReal(dm, true, idKiller);
 	}
 
-	[RPC]
 	[PunRPC]
 	public void MinusLiveRPC(float dm, bool isExplosion, int idKiller)
 	{
@@ -732,7 +727,6 @@ public class TurretController : MonoBehaviour, IDamageable
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	public void MeKillRPC(int idKiller)
 	{
@@ -785,13 +779,11 @@ public class TurretController : MonoBehaviour, IDamageable
 	}
 
 	[PunRPC]
-	[RPC]
 	public void ImKilledRPC()
 	{
 		ImKilledRPCWithExplosion(false);
 	}
 
-	[RPC]
 	[PunRPC]
 	public void ImKilledRPCWithExplosion(bool isExplosion)
 	{
@@ -876,7 +868,6 @@ public class TurretController : MonoBehaviour, IDamageable
 	}
 
 	[PunRPC]
-	[RPC]
 	public void StartTurretRPC()
 	{
 		if (nickLabel != null)
@@ -965,7 +956,6 @@ public class TurretController : MonoBehaviour, IDamageable
 		_networkView.RPC("SendNetworkViewMyPlayerRPC", RPCMode.AllBuffered, myId);
 	}
 
-	[RPC]
 	[PunRPC]
 	public void SendNetworkViewMyPlayerRPC(NetworkViewID myId)
 	{

@@ -843,15 +843,11 @@ namespace Rilisoft
 				PlayDeathEffects();
 			}
 		}
-
-		[RPC]
 		[PunRPC]
 		public void ApplyDamageRPC(float damage, int idKiller)
 		{
 			ApplyDamageFrom(damage, idKiller);
 		}
-
-		[RPC]
 		[PunRPC]
 		public void KilledByRPC(int idKiller)
 		{
@@ -1261,8 +1257,6 @@ namespace Rilisoft
 		{
 			_networkView.RPC("SetOwnerLocalRPC", RPCMode.OthersBuffered, _ownerId);
 		}
-
-		[RPC]
 		public void SetOwnerLocalRPC(NetworkViewID _ownerId)
 		{
 			Owner = Initializer.GetPlayerMoveCWithLocalPlayerID(_ownerId);
@@ -1402,8 +1396,6 @@ namespace Rilisoft
 				_networkView.RPC("SynhCurrentHealthRPC", RPCMode.Others, CurrentHealth);
 			}
 		}
-
-		[RPC]
 		[PunRPC]
 		public void SynhCurrentHealthRPC(float _health)
 		{
@@ -1427,7 +1419,6 @@ namespace Rilisoft
 		}
 
 		[PunRPC]
-		[RPC]
 		public void SynhNameRPC(string _petName)
 		{
 			PetName = _petName;

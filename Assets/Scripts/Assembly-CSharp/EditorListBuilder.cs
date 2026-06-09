@@ -409,7 +409,7 @@ public class EditorListBuilder : MonoBehaviour
 	public static void CopyTextInClipboard(string text)
 	{
 		TextEditor textEditor = new TextEditor();
-		textEditor.content = new GUIContent(text);
+		textEditor.text = text;
 		textEditor.SelectAll();
 		textEditor.Copy();
 	}

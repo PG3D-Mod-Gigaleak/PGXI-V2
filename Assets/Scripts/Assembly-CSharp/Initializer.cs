@@ -528,7 +528,6 @@ public sealed class Initializer : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void SpawnOnNetwork(Vector3 pos, Quaternion rot, int id1, PhotonPlayer np)
 	{
 		if (networkTablePref != null)

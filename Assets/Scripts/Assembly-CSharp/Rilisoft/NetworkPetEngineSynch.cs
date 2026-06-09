@@ -316,7 +316,6 @@ namespace Rilisoft
 		}
 
 		[PunRPC]
-		[RPC]
 		private void IsVisible_RPC(bool state, bool showHideEffect)
 		{
 			if (isMine)

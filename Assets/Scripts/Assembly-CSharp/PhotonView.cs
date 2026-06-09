@@ -256,14 +256,14 @@ public class PhotonView : Photon.MonoBehaviour
 			switch (onSerializeRigidBodyOption)
 			{
 			case OnSerializeRigidBody.All:
-				rigidbody.velocity = (Vector3)stream.ReceiveNext();
+				rigidbody.linearVelocity = (Vector3)stream.ReceiveNext();
 				rigidbody.angularVelocity = (Vector3)stream.ReceiveNext();
 				break;
 			case OnSerializeRigidBody.OnlyAngularVelocity:
 				rigidbody.angularVelocity = (Vector3)stream.ReceiveNext();
 				break;
 			case OnSerializeRigidBody.OnlyVelocity:
-				rigidbody.velocity = (Vector3)stream.ReceiveNext();
+				rigidbody.linearVelocity = (Vector3)stream.ReceiveNext();
 				break;
 			}
 		}
@@ -273,14 +273,14 @@ public class PhotonView : Photon.MonoBehaviour
 			switch (onSerializeRigidBodyOption)
 			{
 			case OnSerializeRigidBody.All:
-				rigidbody2D.velocity = (Vector2)stream.ReceiveNext();
+				rigidbody2D.linearVelocity = (Vector2)stream.ReceiveNext();
 				rigidbody2D.angularVelocity = (float)stream.ReceiveNext();
 				break;
 			case OnSerializeRigidBody.OnlyAngularVelocity:
 				rigidbody2D.angularVelocity = (float)stream.ReceiveNext();
 				break;
 			case OnSerializeRigidBody.OnlyVelocity:
-				rigidbody2D.velocity = (Vector2)stream.ReceiveNext();
+				rigidbody2D.linearVelocity = (Vector2)stream.ReceiveNext();
 				break;
 			}
 		}
@@ -331,14 +331,14 @@ public class PhotonView : Photon.MonoBehaviour
 			switch (onSerializeRigidBodyOption)
 			{
 			case OnSerializeRigidBody.All:
-				stream.SendNext(rigidbody.velocity);
+				stream.SendNext(rigidbody.linearVelocity);
 				stream.SendNext(rigidbody.angularVelocity);
 				break;
 			case OnSerializeRigidBody.OnlyAngularVelocity:
 				stream.SendNext(rigidbody.angularVelocity);
 				break;
 			case OnSerializeRigidBody.OnlyVelocity:
-				stream.SendNext(rigidbody.velocity);
+				stream.SendNext(rigidbody.linearVelocity);
 				break;
 			}
 		}
@@ -348,14 +348,14 @@ public class PhotonView : Photon.MonoBehaviour
 			switch (onSerializeRigidBodyOption)
 			{
 			case OnSerializeRigidBody.All:
-				stream.SendNext(rigidbody2D.velocity);
+				stream.SendNext(rigidbody2D.linearVelocity);
 				stream.SendNext(rigidbody2D.angularVelocity);
 				break;
 			case OnSerializeRigidBody.OnlyAngularVelocity:
 				stream.SendNext(rigidbody2D.angularVelocity);
 				break;
 			case OnSerializeRigidBody.OnlyVelocity:
-				stream.SendNext(rigidbody2D.velocity);
+				stream.SendNext(rigidbody2D.linearVelocity);
 				break;
 			}
 		}

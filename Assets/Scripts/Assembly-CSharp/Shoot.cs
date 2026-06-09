@@ -18,7 +18,6 @@ internal sealed class Shoot : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void Popal(NetworkViewID Popal, NetworkMessageInfo info)
 	{
 		Debug.Log(string.Concat(Popal, " ", base.gameObject.transform.GetComponent<NetworkView>().viewID, " ", info.sender));

@@ -105,7 +105,6 @@ internal sealed class BonusCreator : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void delBonus(NetworkViewID id)
 	{
 		GameObject[] array = GameObject.FindGameObjectsWithTag("Bonus");

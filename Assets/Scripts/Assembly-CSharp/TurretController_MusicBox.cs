@@ -97,7 +97,6 @@ public sealed class TurretController_MusicBox : TurretController
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	private void PlayMusic(bool isPlay)
 	{

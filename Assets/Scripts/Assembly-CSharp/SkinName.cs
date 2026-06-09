@@ -159,7 +159,6 @@ public sealed class SkinName : MonoBehaviour
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	public void SetAnim(int _typeAnim, bool stealth)
 	{
@@ -277,7 +276,6 @@ public sealed class SkinName : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void SetAnim(int _typeAnim)
 	{
 		SetAnim(_typeAnim, true);
@@ -298,7 +296,6 @@ public sealed class SkinName : MonoBehaviour
 		}
 	}
 
-	[RPC]
 	private void setCapeCustomRPCLocal(string str)
 	{
 		byte[] data = Convert.FromBase64String(str);
@@ -352,7 +349,6 @@ public sealed class SkinName : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void setCapeRPC(string _currentCape)
 	{
 		SetCapeModel(_currentCape, null, _currentIsWearInvisible);
@@ -377,7 +373,6 @@ public sealed class SkinName : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void SetArmorVisInvisibleRPC(string _currentArmor, bool _isInviseble)
 	{
 		if (armorPoint.transform.childCount > 0)
@@ -450,7 +445,6 @@ public sealed class SkinName : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void setBootsRPC(string _currentBoots)
 	{
 		SetBoots(_currentBoots, _currentIsWearInvisible);
@@ -503,7 +497,6 @@ public sealed class SkinName : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void SetMaskRPC(string _currentMask)
 	{
 		SetMask(_currentMask, _currentIsWearInvisible);
@@ -554,7 +547,6 @@ public sealed class SkinName : MonoBehaviour
 	}
 
 	[PunRPC]
-	[RPC]
 	private void SetHatWithInvisebleRPC(string _currentHat, bool _isHatInviseble)
 	{
 		SetHat(_currentHat, _isHatInviseble || _currentIsWearInvisible);
@@ -866,7 +858,6 @@ public sealed class SkinName : MonoBehaviour
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	private void SetWearIsInvisibleRPC(bool isInvisible)
 	{
@@ -877,7 +868,6 @@ public sealed class SkinName : MonoBehaviour
 		SetHat(currentHat, _currentIsWearInvisible);
 	}
 
-	[RPC]
 	[PunRPC]
 	private void SetPetRPC(string _currentPet)
 	{
@@ -928,7 +918,6 @@ public sealed class SkinName : MonoBehaviour
 		}
 	}
 
-	[RPC]
 	[PunRPC]
 	private void SetGadgetesRPC(string _currentGadgetSupport, string _currentGadgetTrowing, string _currentGadgetTools)
 	{
