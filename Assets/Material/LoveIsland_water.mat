@@ -2,19 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: LoveIsland_water
   m_Shader: {fileID: 4800000, guid: 8d3789655e54db342b0de596380b308b, type: 3}
-  m_ShaderKeywords: 
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -26,6 +31,7 @@ Material:
         m_Texture: {fileID: 2800000, guid: 78b7332c4ad44414d842c26fe0ebfc61, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AMultiplier: 0.5
     - _MMultiplier: 1.42
@@ -42,4 +48,6 @@ Material:
     - _SineFreqY: 0
     - _SineFreqY2: 0
     m_Colors:
-    - _Color: {r: 0.30406573, g: 0.35853118, b: 0.5588235, a: 1}
+    - _Color: {r: 0.32608375, g: 0.40750152, b: 0.58969414, a: 0.9236415}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
