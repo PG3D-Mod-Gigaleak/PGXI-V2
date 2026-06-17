@@ -13,255 +13,267 @@ using System.Collections.Generic;
 
 public class UIPanelTool : EditorWindow
 {
-	static public UIPanelTool instance;
+    static public UIPanelTool instance;
 
-	enum Visibility
-	{
-		Visible,
-		Hidden,
-	}
+    enum Visibility
+    {
+        Visible,
+        Hidden,
+    }
 
-	class Entry
-	{
-		public UIPanel panel;
-		public bool isEnabled = false;
-		public bool widgetsEnabled = false;
-		public List<UIWidget> widgets = new List<UIWidget>();
-	}
+    class Entry
+    {
+        public UIPanel panel;
+        public bool isEnabled = false;
+        public bool widgetsEnabled = false;
+        public List<UIWidget> widgets = new List<UIWidget>();
+    }
 
-	/// <summary>
-	/// First sort by depth, then alphabetically, then by instance ID.
-	/// </summary>
+    static string GetHierarchyPath(Transform transform)
+    {
+        if (transform == null) return string.Empty;
+        string path = transform.name;
+        while (transform.parent != null)
+        {
+            transform = transform.parent;
+            path = transform.name + "/" + path;
+        }
+        return path;
+    }
 
-	static int Compare (Entry a, Entry b)
-	{
-		if (a != b && a != null && b != null)
-		{
-			if (a.panel.depth < b.panel.depth) return -1;
-			if (a.panel.depth > b.panel.depth) return 1;
-			int val = string.Compare(a.panel.name, b.panel.name);
-			if (val != 0) return val;
-			return (a.panel.GetInstanceID() < b.panel.GetInstanceID()) ? -1 : 1;
-		}
-		return 0;
-	}
+    /// <summary>
+    /// First sort by depth, then alphabetically, then by hierarchy path.
+    /// </summary>
 
-	Vector2 mScroll = Vector2.zero;
+    static int Compare(Entry a, Entry b)
+    {
+        if (a != b && a != null && b != null)
+        {
+            if (a.panel.depth < b.panel.depth) return -1;
+            if (a.panel.depth > b.panel.depth) return 1;
+            int val = string.Compare(a.panel.name, b.panel.name);
+            if (val != 0) return val;
+            return string.Compare(GetHierarchyPath(a.panel.transform), GetHierarchyPath(b.panel.transform), System.StringComparison.Ordinal);
+        }
+        return 0;
+    }
 
-	void OnEnable () { instance = this; }
-	void OnDisable () { instance = null; }
-	void OnSelectionChange () { Repaint(); }
+    Vector2 mScroll = Vector2.zero;
 
-	/// <summary>
-	/// Collect a list of panels.
-	/// </summary>
+    void OnEnable() { instance = this; }
+    void OnDisable() { instance = null; }
+    void OnSelectionChange() { Repaint(); }
 
-	static List<UIPanel> GetListOfPanels ()
-	{
-		List<UIPanel> panels = NGUIEditorTools.FindAll<UIPanel>();
+    /// <summary>
+    /// Collect a list of panels.
+    /// </summary>
 
-		for (int i = panels.Count; i > 0; )
-		{
-			if (!panels[--i].showInPanelTool)
-			{
-				panels.RemoveAt(i);
-			}
-		}
-		return panels;
-	}
+    static List<UIPanel> GetListOfPanels()
+    {
+        List<UIPanel> panels = NGUIEditorTools.FindAll<UIPanel>();
 
-	/// <summary>
-	/// Get a list of widgets managed by the specified transform's children.
-	/// </summary>
+        for (int i = panels.Count; i > 0;)
+        {
+            if (!panels[--i].showInPanelTool)
+            {
+                panels.RemoveAt(i);
+            }
+        }
+        return panels;
+    }
 
-	static void GetWidgets (Transform t, List<UIWidget> widgets)
-	{
-		for (int i = 0; i < t.childCount; ++i)
-		{
-			Transform child = t.GetChild(i);
-			UIWidget w = child.GetComponent<UIWidget>();
-			if (w != null) widgets.Add(w);
-			else if (child.GetComponent<UIPanel>() == null) GetWidgets(child, widgets);
-		}
-	}
+    /// <summary>
+    /// Get a list of widgets managed by the specified transform's children.
+    /// </summary>
 
-	/// <summary>
-	/// Get a list of widgets managed by the specified panel.
-	/// </summary>
+    static void GetWidgets(Transform t, List<UIWidget> widgets)
+    {
+        for (int i = 0; i < t.childCount; ++i)
+        {
+            Transform child = t.GetChild(i);
+            UIWidget w = child.GetComponent<UIWidget>();
+            if (w != null) widgets.Add(w);
+            else if (child.GetComponent<UIPanel>() == null) GetWidgets(child, widgets);
+        }
+    }
 
-	static List<UIWidget> GetWidgets (UIPanel panel)
-	{
-		List<UIWidget> widgets = new List<UIWidget>();
-		if (panel != null) GetWidgets(panel.transform, widgets);
-		return widgets;
-	}
+    /// <summary>
+    /// Get a list of widgets managed by the specified panel.
+    /// </summary>
 
-	/// <summary>
-	/// Draw the custom wizard.
-	/// </summary>
+    static List<UIWidget> GetWidgets(UIPanel panel)
+    {
+        List<UIWidget> widgets = new List<UIWidget>();
+        if (panel != null) GetWidgets(panel.transform, widgets);
+        return widgets;
+    }
 
-	void OnGUI ()
-	{
-		List<UIPanel> panels = GetListOfPanels();
+    /// <summary>
+    /// Draw the custom wizard.
+    /// </summary>
 
-		if (panels != null && panels.Count > 0)
-		{
-			UIPanel selectedPanel = NGUITools.FindInParents<UIPanel>(Selection.activeGameObject);
+    void OnGUI()
+    {
+        List<UIPanel> panels = GetListOfPanels();
 
-			// First, collect a list of panels with their associated widgets
-			List<Entry> entries = new List<Entry>();
-			Entry selectedEntry = null;
-			bool allEnabled = true;
+        if (panels != null && panels.Count > 0)
+        {
+            UIPanel selectedPanel = NGUITools.FindInParents<UIPanel>(Selection.activeGameObject);
 
-			foreach (UIPanel panel in panels)
-			{
-				Entry ent = new Entry();
-				ent.panel = panel;
-				ent.widgets = GetWidgets(panel);
-				ent.isEnabled = panel.enabled && NGUITools.GetActive(panel.gameObject);
-				ent.widgetsEnabled = ent.isEnabled;
+            // First, collect a list of panels with their associated widgets
+            List<Entry> entries = new List<Entry>();
+            Entry selectedEntry = null;
+            bool allEnabled = true;
 
-				if (ent.widgetsEnabled)
-				{
-					foreach (UIWidget w in ent.widgets)
-					{
-						if (!NGUITools.GetActive(w.gameObject))
-						{
-							allEnabled = false;
-							ent.widgetsEnabled = false;
-							break;
-						}
-					}
-				}
-				else allEnabled = false;
-				entries.Add(ent);
-			}
+            foreach (UIPanel panel in panels)
+            {
+                Entry ent = new Entry();
+                ent.panel = panel;
+                ent.widgets = GetWidgets(panel);
+                ent.isEnabled = panel.enabled && NGUITools.GetActive(panel.gameObject);
+                ent.widgetsEnabled = ent.isEnabled;
 
-			// Sort the list by depth
-			entries.Sort(Compare);
+                if (ent.widgetsEnabled)
+                {
+                    foreach (UIWidget w in ent.widgets)
+                    {
+                        if (!NGUITools.GetActive(w.gameObject))
+                        {
+                            allEnabled = false;
+                            ent.widgetsEnabled = false;
+                            break;
+                        }
+                    }
+                }
+                else allEnabled = false;
+                entries.Add(ent);
+            }
 
-			mScroll = GUILayout.BeginScrollView(mScroll);
+            // Sort the list by depth
+            entries.Sort(Compare);
 
-			NGUIEditorTools.SetLabelWidth(80f);
-			bool showAll = DrawRow(null, null, allEnabled);
-			NGUIEditorTools.DrawSeparator();
+            mScroll = GUILayout.BeginScrollView(mScroll);
 
-			foreach (Entry ent in entries)
-			{
-				if (DrawRow(ent, selectedPanel, ent.widgetsEnabled))
-				{
-					selectedEntry = ent;
-				}
-			}
+            NGUIEditorTools.SetLabelWidth(80f);
+            bool showAll = DrawRow(null, null, allEnabled);
+            NGUIEditorTools.DrawSeparator();
 
-			GUILayout.EndScrollView();
+            foreach (Entry ent in entries)
+            {
+                if (DrawRow(ent, selectedPanel, ent.widgetsEnabled))
+                {
+                    selectedEntry = ent;
+                }
+            }
 
-			if (showAll)
-			{
-				foreach (Entry ent in entries)
-				{
-					NGUITools.SetActive(ent.panel.gameObject, !allEnabled);
-				}
-			}
-			else if (selectedEntry != null)
-			{
-				NGUITools.SetActive(selectedEntry.panel.gameObject, !selectedEntry.widgetsEnabled);
-			}
-		}
-		else
-		{
-			GUILayout.Label("No UI Panels found in the scene");
-		}
-	}
+            GUILayout.EndScrollView();
 
-	/// <summary>
-	/// Helper function used to print things in columns.
-	/// </summary>
+            if (showAll)
+            {
+                foreach (Entry ent in entries)
+                {
+                    NGUITools.SetActive(ent.panel.gameObject, !allEnabled);
+                }
+            }
+            else if (selectedEntry != null)
+            {
+                NGUITools.SetActive(selectedEntry.panel.gameObject, !selectedEntry.widgetsEnabled);
+            }
+        }
+        else
+        {
+            GUILayout.Label("No UI Panels found in the scene");
+        }
+    }
 
-	bool DrawRow (Entry ent, UIPanel selected, bool isChecked)
-	{
-		bool retVal = false;
-		string panelName, layer, depth, widgetCount, drawCalls, clipping, triangles;
+    /// <summary>
+    /// Helper function used to print things in columns.
+    /// </summary>
 
-		if (ent != null)
-		{
-			panelName = ent.panel.name;
-			layer = LayerMask.LayerToName(ent.panel.gameObject.layer);
-			depth = ent.panel.depth.ToString();
-			widgetCount = ent.widgets.Count.ToString();
-			drawCalls = ent.panel.drawCalls.Count.ToString();
-			clipping = (ent.panel.clipping != UIDrawCall.Clipping.None) ? "Yes" : "";
+    bool DrawRow(Entry ent, UIPanel selected, bool isChecked)
+    {
+        bool retVal = false;
+        string panelName, layer, depth, widgetCount, drawCalls, clipping, triangles;
 
-			int triangeCount = 0;
-			foreach (var dc in ent.panel.drawCalls)
-				triangeCount += dc.triangles;
+        if (ent != null)
+        {
+            panelName = ent.panel.name;
+            layer = LayerMask.LayerToName(ent.panel.gameObject.layer);
+            depth = ent.panel.depth.ToString();
+            widgetCount = ent.widgets.Count.ToString();
+            drawCalls = ent.panel.drawCalls.Count.ToString();
+            clipping = (ent.panel.clipping != UIDrawCall.Clipping.None) ? "Yes" : "";
 
-			triangles = triangeCount.ToString();
-		}
-		else
-		{
-			panelName = "Panel's Name";
-			layer = "Layer";
-			depth = "DP";
-			widgetCount = "WG";
-			drawCalls = "DC";
-			clipping = "Clip";
-			triangles = "Tris";
-		}
+            int triangeCount = 0;
+            foreach (var dc in ent.panel.drawCalls)
+                triangeCount += dc.triangles;
 
-		if (ent != null) GUILayout.Space(-1f);
+            triangles = triangeCount.ToString();
+        }
+        else
+        {
+            panelName = "Panel's Name";
+            layer = "Layer";
+            depth = "DP";
+            widgetCount = "WG";
+            drawCalls = "DC";
+            clipping = "Clip";
+            triangles = "Tris";
+        }
 
-		if (ent != null)
-		{
-			GUI.backgroundColor = ent.panel == selected ? Color.white : new Color(0.8f, 0.8f, 0.8f);
-			GUILayout.BeginHorizontal("AS TextArea", GUILayout.MinHeight(20f));
-			GUI.backgroundColor = Color.white;
-		}
-		else
-		{
-			GUILayout.BeginHorizontal();
-		}
+        if (ent != null) GUILayout.Space(-1f);
 
-		GUI.contentColor = (ent == null || ent.isEnabled) ? Color.white : new Color(0.7f, 0.7f, 0.7f);
-		if (isChecked != EditorGUILayout.Toggle(isChecked, GUILayout.Width(20f))) retVal = true;
+        if (ent != null)
+        {
+            GUI.backgroundColor = ent.panel == selected ? Color.white : new Color(0.8f, 0.8f, 0.8f);
+            GUILayout.BeginHorizontal("AS TextArea", GUILayout.MinHeight(20f));
+            GUI.backgroundColor = Color.white;
+        }
+        else
+        {
+            GUILayout.BeginHorizontal();
+        }
 
-		GUILayout.Label(depth, GUILayout.Width(30f));
+        GUI.contentColor = (ent == null || ent.isEnabled) ? Color.white : new Color(0.7f, 0.7f, 0.7f);
+        if (isChecked != EditorGUILayout.Toggle(isChecked, GUILayout.Width(20f))) retVal = true;
 
-		if (GUILayout.Button(panelName, EditorStyles.label, GUILayout.MinWidth(100f)))
-		{
-			if (ent != null)
-			{
-				Selection.activeGameObject = ent.panel.gameObject;
-				EditorUtility.SetDirty(ent.panel.gameObject);
-			}
-		}
+        GUILayout.Label(depth, GUILayout.Width(30f));
 
-		GUILayout.Label(layer, GUILayout.Width(ent == null ? 65f : 70f));
-		GUILayout.Label(widgetCount, GUILayout.Width(30f));
-		GUILayout.Label(drawCalls, GUILayout.Width(30f));
-		GUILayout.Label(clipping, GUILayout.Width(30f));
-		GUILayout.Label(triangles, GUILayout.Width(30f));
+        if (GUILayout.Button(panelName, EditorStyles.label, GUILayout.MinWidth(100f)))
+        {
+            if (ent != null)
+            {
+                Selection.activeGameObject = ent.panel.gameObject;
+                EditorUtility.SetDirty(ent.panel.gameObject);
+            }
+        }
 
-		if (ent == null)
-		{
-			GUILayout.Label("Stc", GUILayout.Width(24f));
-		}
-		else
-		{
-			bool val = ent.panel.widgetsAreStatic;
+        GUILayout.Label(layer, GUILayout.Width(ent == null ? 65f : 70f));
+        GUILayout.Label(widgetCount, GUILayout.Width(30f));
+        GUILayout.Label(drawCalls, GUILayout.Width(30f));
+        GUILayout.Label(clipping, GUILayout.Width(30f));
+        GUILayout.Label(triangles, GUILayout.Width(30f));
 
-			if (val != EditorGUILayout.Toggle(val, GUILayout.Width(20f)))
-			{
-				ent.panel.widgetsAreStatic = !val;
-				EditorUtility.SetDirty(ent.panel.gameObject);
+        if (ent == null)
+        {
+            GUILayout.Label("Stc", GUILayout.Width(24f));
+        }
+        else
+        {
+            bool val = ent.panel.widgetsAreStatic;
+
+            if (val != EditorGUILayout.Toggle(val, GUILayout.Width(20f)))
+            {
+                ent.panel.widgetsAreStatic = !val;
+                EditorUtility.SetDirty(ent.panel.gameObject);
 #if !UNITY_3_5
-				if (NGUITransformInspector.instance != null)
-					NGUITransformInspector.instance.Repaint();
+                if (NGUITransformInspector.instance != null)
+                    NGUITransformInspector.instance.Repaint();
 #endif
-			}
-		}
-		GUI.contentColor = Color.white;
-		GUILayout.EndHorizontal();
-		return retVal;
-	}
+            }
+        }
+        GUI.contentColor = Color.white;
+        GUILayout.EndHorizontal();
+        return retVal;
+    }
 }

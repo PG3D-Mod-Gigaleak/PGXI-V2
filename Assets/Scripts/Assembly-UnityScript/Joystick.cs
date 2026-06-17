@@ -196,13 +196,13 @@ public class Joystick : MonoBehaviour
 
     public virtual void Disable()
     {
-        gameObject.active = false;
+        gameObject.SetActive(false);
         enumeratedJoysticks = false;
     }
 
     public virtual void Enable()
     {
-        gameObject.active = true;
+        gameObject.SetActive(true);
     }
 
     public virtual void ResetJoystick()
